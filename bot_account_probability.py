@@ -34,10 +34,10 @@ def storeBotResult(bot_score, usr_name):
 
     # Check file doesnt exist before creating file
     fileIndex = 0
-    datafile = 'tweet_data/unsorted/bot_check_'+str(fileIndex)+'.csv'
+    datafile = 'bot_check_'+str(fileIndex)+'.csv'
     while os.path.isfile(datafile):
         fileIndex += 1
-        datafile = 'tweet_data/unsorted/bot_check_' + str(fileIndex) + '.csv'
+        datafile = 'bot_check_' + str(fileIndex) + '.csv'
 
     # Open csv writer on file
     csvwriter = csv.writer(open(datafile, 'w'))
@@ -63,7 +63,7 @@ def getBotScore(usr_name):
 botometer = Botometer(rapidapi_key=os.getenv("RAPID_API_KEY"), consumer_key=os.getenv("CONSUMER_KEY"), consumer_secret=os.getenv("CONSUMER_SECRET"), wait_on_ratelimit=True)
 
 # Open tweet_data file
-csvreader = csv.reader(open('tweet_data/unsorted/tweeters_ordered.csv', 'r'))
+csvreader = csv.reader(open('tweeters_ordered.csv', 'r'))
 # Loop through 1st 480 elements
 for idx, row in enumerate(csvreader):
     if idx == 0:
